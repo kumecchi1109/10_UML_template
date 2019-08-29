@@ -1,0 +1,145 @@
+@startuml
+actor アクター
+agent エージェント
+artifact アーティファクト
+boundary 境界
+card カード
+cloud クラウド
+component コンポーネント
+control コントロール
+database データベース
+entity エンティティ
+file ファイル
+folder フォルダ
+frame フレーム
+interface インターフェイス
+node ノード
+package パッケージ
+queue キュー
+stack スタック
+rectangle 四角形
+storage ストレージ
+usecase ユースケース
+@enduml
+
+@startuml
+folder フォルダ [
+これは<b>フォルダ</b>です
+----
+境界線として
+====
+いろいろな種類の
+....
+スタイルが使えます
+]
+node ノード [
+これは<b>ノード</b>です
+----
+境界線として
+====
+いろいろな種類の
+....
+スタイルが使えます
+]
+database データベース [
+これは<b>データベース</b>です
+----
+境界線として
+====
+いろいろな種類の
+....
+スタイルが使えます
+]
+usecase ユースケース [
+これは<b>ユースケース</b>です
+----
+境界線として
+====
+いろいろな種類の
+....
+スタイルが使えます
+]
+@enduml
+
+@startuml
+node ノード1
+node ノード2
+node ノード3
+node ノード4
+node ノード5
+ノード1 -- ノード2
+ノード1 .. ノード3
+ノード1 ~~ ノード4
+ノード1 == ノード5
+@enduml
+
+@startuml
+artifact アーティファクト1
+artifact アーティファクト2
+artifact アーティファクト3
+artifact アーティファクト4
+artifact アーティファクト5
+artifact アーティファクト6
+artifact アーティファクト7
+artifact アーティファクト8
+artifact アーティファクト9
+artifact アーティファクト10
+アーティファクト1 --> アーティファクト2
+アーティファクト1 --* アーティファクト3
+アーティファクト1 --o アーティファクト4
+アーティファクト1 --+ アーティファクト5
+アーティファクト1 --# アーティファクト6
+アーティファクト1 -->> アーティファクト7
+アーティファクト1 --0 アーティファクト8
+アーティファクト1 --^ アーティファクト9
+アーティファクト1 --(0 アーティファクト10
+@enduml
+
+@startuml
+cloud クラウド1
+cloud クラウド2
+cloud クラウド3
+cloud クラウド4
+cloud クラウド5
+クラウド1 -0- クラウド2
+クラウド1 -0)- クラウド3
+クラウド1 -(0- クラウド4
+クラウド1 -(0)- クラウド5
+@enduml
+
+@startuml
+artifact Foo1 {
+  folder Foo2
+}
+folder Foo3 {
+  artifact Foo4
+}
+frame Foo5 {
+  database Foo6
+}
+@enduml
+
+@startuml
+node Foo1 {
+ cloud Foo2 
+}
+cloud Foo3 {
+  frame Foo4
+}
+database Foo5  {
+  storage Foo6
+}
+storage Foo7 {
+  storage Foo8
+}
+@enduml
+
+@startuml
+skinparam rectangle {
+	roundCorner<<コンセプト>> 25
+}
+rectangle "コンセプト・モデル" <<コンセプト>> {
+	rectangle "例 1" <<コンセプト>> as ex1
+	rectangle "別の四角形"
+}
+@enduml

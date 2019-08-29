@@ -1,0 +1,157 @@
+@startuml
+[First component]
+[Another component] as Comp2  
+component Comp3
+component [Last\ncomponent] as Comp4
+@enduml
+
+@startuml
+() "First Interface"
+() "Another interface" as Interf2
+interface Interf3
+interface "Last\ninterface" as Interf4
+@enduml
+
+@startuml
+DataAccess - [First Component] 
+[First Component] ..> HTTP : use
+@enduml
+
+@startuml
+interface "Data Access" as DA
+DA - [First Component] 
+[First Component] ..> HTTP : use
+note left of HTTP : Web Service only
+note right of [First Component]
+  A note can also
+  be on several lines
+end note
+@enduml
+
+@startuml
+package "Some Group" {
+  HTTP - [First Component]
+  [Another Component]
+}
+ node "Other Groups" {
+  FTP - [Second Component]
+  [First Component] --> FTP
+} 
+cloud {
+  [Example 1]
+}
+database "MySql" {
+  folder "This is my folder" {
+	[Folder 3]
+  }
+  frame "Foo" {
+	[Frame 4]
+  }
+}
+[Another Component] --> [Example 1]
+[Example 1] --> [Folder 3]
+[Folder 3] --> [Frame 4]
+@enduml
+
+@startuml
+[Component] --> Interface1
+[Component] -> Interface2
+@enduml
+
+@startuml
+Interface1 <-- [Component]
+Interface2 <- [Component]
+@enduml
+
+@startuml
+[Component] -left-> left 
+[Component] -right-> right 
+[Component] -up-> up
+[Component] -down-> down
+@enduml
+
+@startuml
+skinparam componentStyle uml2
+interface "Data Access" as DA
+DA - [First Component] 
+[First Component] ..> HTTP : use
+@enduml
+
+@startuml
+component comp1 [
+This component
+has a long comment
+on several lines
+]
+@enduml
+
+@startuml
+component  [Web Server] #Yellow
+@enduml
+
+@startuml
+sprite $businessProcess [16x16/16] {
+FFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFF
+FFFFFFFFFF0FFFFF
+FFFFFFFFFF00FFFF
+FF00000000000FFF
+FF000000000000FF
+FF00000000000FFF
+FFFFFFFFFF00FFFF
+FFFFFFFFFF0FFFFF
+FFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFF
+FFFFFFFFFFFFFFFF
+}
+rectangle " End to End\nbusiness process" <<$businessProcess>> {
+ rectangle "inner process 1" <<$businessProcess>> as src
+ rectangle "inner process 2" <<$businessProcess>> as tgt
+ src -> tgt
+}
+@enduml
+
+@startuml
+skinparam interface {
+  backgroundColor RosyBrown
+  borderColor orange
+}
+skinparam component {
+  FontSize 13
+  BackgroundColor<<Apache>> Red
+  BorderColor<<Apache>> #FF6655
+  FontName Courier
+  BorderColor black
+  BackgroundColor gold
+  ArrowFontName Impact
+  ArrowColor #FF6655
+  ArrowFontColor #777777
+}
+() "Data Access" as DA
+DA - [First Component] 
+[First Component] ..> () HTTP : use
+HTTP - [Web Server] << Apache >>
+@enduml
+
+@startuml
+[AA] <<static lib>>
+[BB] <<shared lib>>
+[CC] <<static lib>>
+node node1
+node node2 <<shared node>>
+database Production
+skinparam component {
+	backgroundColor<<static lib>> DarkKhaki
+	backgroundColor<<shared lib>> Green
+}
+skinparam node {
+	borderColor Green
+	backgroundColor Yellow
+	backgroundColor<<shared node>> Magenta
+}
+skinparam databaseBackgroundColor Aqua
+@enduml
